@@ -138,4 +138,14 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
+
+- (IBAction)plusButtonTapped:(id)sender
+{
+    Message *newMessage = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.store.managedObjectContext];
+    newMessage.content = [NSString stringWithFormat:@"The time right now is: %@", [NSDate date]];
+    [self.store saveContext];
+    [self.store fetchData];
+    [self.tableView reloadData];
+}
+
 @end
