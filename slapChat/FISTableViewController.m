@@ -29,7 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.tableView.accessibilityLabel = @"TableView";
+    self.tableView.accessibilityIdentifier = @"TableView";
     self.store = [FISDataStore sharedDataStore];
 }
 
@@ -69,9 +70,7 @@
     Message *eachMessage = self.store.messages[indexPath.row];
     
     cell.textLabel.text = eachMessage.content;
-    
-    // Configure the cell...
-    
+        
     return cell;
 }
 
