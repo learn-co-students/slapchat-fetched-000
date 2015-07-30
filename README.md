@@ -1,7 +1,4 @@
----
-tags: fetchresultscontroller, coredata
-languages: objc
----
+
 
 # SlapChat Fetched Results Controller
 
