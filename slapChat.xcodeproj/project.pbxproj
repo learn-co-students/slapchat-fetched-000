@@ -26,7 +26,9 @@
 		D879F375195E02C000FC5285 /* slapChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D879F373195E02C000FC5285 /* slapChat.xcdatamodeld */; };
 		D879F377195E030C00FC5285 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D879F376195E030C00FC5285 /* CoreData.framework */; };
 		D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F379195E032D00FC5285 /* FISTableViewController.m */; };
-		D879F37D1960928D00FC5285 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D879F37C1960928D00FC5285 /* Message.m */; };
+		E20E868E1BCFFC61002B189D /* FISMessage+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E20E868B1BCFFC61002B189D /* FISMessage+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		E20E868F1BCFFC61002B189D /* FISMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = E20E868D1BCFFC61002B189D /* FISMessage.m */; settings = {ASSET_TAGS = (); }; };
+		E20E86911BD040C8002B189D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E20E86901BD040C8002B189D /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +68,11 @@
 		D879F376195E030C00FC5285 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		D879F378195E032D00FC5285 /* FISTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISTableViewController.h; sourceTree = "<group>"; };
 		D879F379195E032D00FC5285 /* FISTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISTableViewController.m; sourceTree = "<group>"; };
-		D879F37B1960928D00FC5285 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		D879F37C1960928D00FC5285 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		E20E868A1BCFFC61002B189D /* FISMessage+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FISMessage+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E20E868B1BCFFC61002B189D /* FISMessage+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FISMessage+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E20E868C1BCFFC61002B189D /* FISMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FISMessage.h; sourceTree = "<group>"; };
+		E20E868D1BCFFC61002B189D /* FISMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FISMessage.m; sourceTree = "<group>"; };
+		E20E86901BD040C8002B189D /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = "Launch Screen.storyboard"; path = "../Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E2B39DB84F84C5A015E1ED3C /* Pods-slapChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-slapChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-slapChatTests/Pods-slapChatTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,13 +147,15 @@
 		D879F33E195E028000FC5285 /* slapChat */ = {
 			isa = PBXGroup;
 			children = (
-				D879F37B1960928D00FC5285 /* Message.h */,
-				D879F37C1960928D00FC5285 /* Message.m */,
-				D879F373195E02C000FC5285 /* slapChat.xcdatamodeld */,
-				D879F370195E02B400FC5285 /* FISDataStore.h */,
-				D879F371195E02B400FC5285 /* FISDataStore.m */,
 				D879F347195E028000FC5285 /* FISAppDelegate.h */,
 				D879F348195E028000FC5285 /* FISAppDelegate.m */,
+				D879F370195E02B400FC5285 /* FISDataStore.h */,
+				D879F371195E02B400FC5285 /* FISDataStore.m */,
+				E20E868A1BCFFC61002B189D /* FISMessage+CoreDataProperties.h */,
+				E20E868B1BCFFC61002B189D /* FISMessage+CoreDataProperties.m */,
+				E20E868C1BCFFC61002B189D /* FISMessage.h */,
+				E20E868D1BCFFC61002B189D /* FISMessage.m */,
+				D879F373195E02C000FC5285 /* slapChat.xcdatamodeld */,
 				D879F34A195E028000FC5285 /* Main.storyboard */,
 				D879F378195E032D00FC5285 /* FISTableViewController.h */,
 				D879F379195E032D00FC5285 /* FISTableViewController.m */,
@@ -161,6 +168,7 @@
 		D879F33F195E028000FC5285 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E20E86901BD040C8002B189D /* Launch Screen.storyboard */,
 				D879F340195E028000FC5285 /* slapChat-Info.plist */,
 				D879F341195E028000FC5285 /* InfoPlist.strings */,
 				D879F344195E028000FC5285 /* main.m */,
@@ -217,6 +225,7 @@
 				D879F353195E028000FC5285 /* Frameworks */,
 				D879F354195E028000FC5285 /* Resources */,
 				744A545C2AA970B901328932 /* Copy Pods Resources */,
+				6E1B2289CDB27FBC30745B0D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,7 +244,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = FIS;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Joe Burgess";
 				TargetAttributes = {
 					D879F355195E028000FC5285 = {
@@ -269,6 +278,7 @@
 			files = (
 				D879F351195E028000FC5285 /* Images.xcassets in Resources */,
 				D879F343195E028000FC5285 /* InfoPlist.strings in Resources */,
+				E20E86911BD040C8002B189D /* Launch Screen.storyboard in Resources */,
 				D879F34C195E028000FC5285 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +294,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6E1B2289CDB27FBC30745B0D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-slapChatTests/Pods-slapChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		6E3B80C5CF04F0CABB101467 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,9 +346,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20E868F1BCFFC61002B189D /* FISMessage.m in Sources */,
 				D879F345195E028000FC5285 /* main.m in Sources */,
-				D879F37D1960928D00FC5285 /* Message.m in Sources */,
 				D879F375195E02C000FC5285 /* slapChat.xcdatamodeld in Sources */,
+				E20E868E1BCFFC61002B189D /* FISMessage+CoreDataProperties.m in Sources */,
 				D879F372195E02B400FC5285 /* FISDataStore.m in Sources */,
 				D879F349195E028000FC5285 /* FISAppDelegate.m in Sources */,
 				D879F37A195E032D00FC5285 /* FISTableViewController.m in Sources */,
@@ -395,6 +421,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -409,7 +436,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -441,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -455,6 +482,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slapChat/slapChat-Prefix.pch";
 				INFOPLIST_FILE = "slapChat/slapChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FlatironSchool.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -468,6 +497,8 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slapChat/slapChat-Prefix.pch";
 				INFOPLIST_FILE = "slapChat/slapChat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "FlatironSchool.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -490,6 +521,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "slapChatTests/slapChatTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "FlatironSchool.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -509,6 +541,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "slapChat/slapChat-Prefix.pch";
 				INFOPLIST_FILE = "slapChatTests/slapChatTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "FlatironSchool.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
