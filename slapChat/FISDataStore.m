@@ -7,7 +7,7 @@
 //
 
 #import "FISDataStore.h"
-#import "Message.h"
+#import "FISMessage.h"
 
 @implementation FISDataStore
 @synthesize managedObjectContext = _managedObjectContext;
@@ -58,7 +58,7 @@
 
     [coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error];
     if (coordinator != nil) {
-        _managedObjectContext = [[NSManagedObjectContext alloc] init];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
         [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     return _managedObjectContext;
@@ -75,16 +75,16 @@
 
 - (void)generateTestData
 {
-    Message *messageOne = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
+    FISMessage *messageOne = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.managedObjectContext];
     
     messageOne.content = @"Message 1";
     messageOne.createdAt = [NSDate date];
     
-    Message *messageTwo = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
+    FISMessage *messageTwo = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.managedObjectContext];
     messageTwo.content = @"Message 2";
     messageTwo.createdAt = [NSDate date];
     
-    Message *messageThree = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:self.managedObjectContext];
+    FISMessage *messageThree = [NSEntityDescription insertNewObjectForEntityForName:@"FISMessage" inManagedObjectContext:self.managedObjectContext];
     
     messageThree.content = @"Message 3";
     messageThree.createdAt = [NSDate date];
@@ -94,7 +94,7 @@
 
 - (void)fetchData
 {
-    NSFetchRequest *messagesRequest = [NSFetchRequest fetchRequestWithEntityName:@"Message"];
+    NSFetchRequest *messagesRequest = [NSFetchRequest fetchRequestWithEntityName:@"FISMessage"];
 
     NSSortDescriptor *createdAtSorter = [NSSortDescriptor sortDescriptorWithKey:@"createdAt" ascending:YES];
     messagesRequest.sortDescriptors = @[createdAtSorter];

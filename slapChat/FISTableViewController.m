@@ -7,29 +7,20 @@
 //
 
 #import "FISTableViewController.h"
-#import "Message.h"
+#import "FISMessage.h"
+#import "FISDataStore.h"
 
 @interface FISTableViewController ()
-
+@property (strong, nonatomic) NSArray *messages;
+@property (strong, nonatomic) FISDataStore *store;
 @end
 
 @implementation FISTableViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
     self.store = [FISDataStore sharedDataStore];
 }
 
@@ -38,45 +29,30 @@
     [super viewWillAppear:animated];
 
     [self.store fetchData];
+    self.messages = self.store.messages;
     [self.tableView reloadData];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [self.store.messages count];
+    return [self.messages count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"basiccell" forIndexPath:indexPath];
     
-    Message *eachMessage = self.store.messages[indexPath.row];
-    
+    FISMessage *eachMessage = self.messages[indexPath.row];
     cell.textLabel.text = eachMessage.content;
-    
-    // Configure the cell...
     
     return cell;
 }
 
-#pragma mark - NSFetchedResultsControllerDelegate methods
+#pragma mark - NSFetchedResultsControllerDelegate (boilerplate)
 
+/*
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView beginUpdates];
 }
@@ -86,31 +62,29 @@
        atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type
       newIndexPath:(NSIndexPath *)newIndexPath {
-
+    
     UITableView *tableView = self.tableView;
-
+    
     switch(type) {
-
+            // option+click the constants (NSFetchedResultsChange____) to read what they mean
         case NSFetchedResultsChangeInsert:
-            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
-
+            
         case NSFetchedResultsChangeDelete:
-            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
-
+            
         case NSFetchedResultsChangeUpdate:
             [tableView reloadRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         case NSFetchedResultsChangeMove:
-            [tableView deleteRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:indexPath]
+            [tableView deleteRowsAtIndexPaths:@[indexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
-            [tableView insertRowsAtIndexPaths:[NSArray
-                                               arrayWithObject:newIndexPath]
+            [tableView insertRowsAtIndexPaths:@[newIndexPath]
                              withRowAnimation:UITableViewRowAnimationFade];
             break;
     }
@@ -120,17 +94,25 @@
   didChangeSection:(id )sectionInfo
            atIndex:(NSUInteger)sectionIndex
      forChangeType:(NSFetchedResultsChangeType)type {
-
+    
     switch(type) {
-
+            // option+click the constants (NSFetchedResultsChange____) to read what they mean
         case NSFetchedResultsChangeInsert:
             [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]
                           withRowAnimation:UITableViewRowAnimationFade];
             break;
-
+            
         case NSFetchedResultsChangeDelete:
             [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]
                           withRowAnimation:UITableViewRowAnimationFade];
+            break;
+            
+        case NSFetchedResultsChangeMove:
+            // nothing implemented; we're not allowing editing of the tableView rows or storage array.
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            // not implemented; we're not allowing editing of message objects. For this app we'd probably just reload the cell that had its FISMessage changed so it would display the correct title.
             break;
     }
 }
@@ -138,4 +120,6 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
 }
+*/
+
 @end
