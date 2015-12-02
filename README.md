@@ -34,3 +34,4 @@ Read through the methods to see how they will handle changes. Also **uncomment t
 6. Finally, call `performFetch:` on your NSFRC at the end of `viewDidLoad`. 
    - Enter `nil` for the argument, we'll get to how `NSError`'s work later on.
 7. Run it, and be amazed as you tap the add button and messages magically show up in your tableView! 
+<a href='https://learn.co/lessons/slapchat-fetched' data-visibility='hidden'>View this lesson on Learn.co</a>
